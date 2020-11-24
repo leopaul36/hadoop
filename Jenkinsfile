@@ -59,13 +59,13 @@ pipeline {
 
         stage ('precommit-run') {
             steps {
-                withCredentials(
-                    [usernamePassword(credentialsId: 'apache-hadoop-at-github.com',
-                                  passwordVariable: 'GITHUB_TOKEN',
-                                  usernameVariable: 'GITHUB_USER'),
-                    usernamePassword(credentialsId: 'hadoopqa-at-asf-jira',
-                                        passwordVariable: 'JIRA_PASSWORD',
-                                        usernameVariable: 'JIRA_USER')]) {
+                // withCredentials(
+                //     [usernamePassword(credentialsId: 'apache-hadoop-at-github.com',
+                //                   passwordVariable: 'GITHUB_TOKEN',
+                //                   usernameVariable: 'GITHUB_USER'),
+                //     usernamePassword(credentialsId: 'hadoopqa-at-asf-jira',
+                //                         passwordVariable: 'JIRA_PASSWORD',
+                //                         usernameVariable: 'JIRA_USER')]) {
                         sh '''#!/usr/bin/env bash
 
                         set -e
@@ -165,7 +165,7 @@ pipeline {
 
                         "${TESTPATCHBIN}" "${YETUS_ARGS[@]}"
                         '''
-                }
+                // }
             }
         }
 
