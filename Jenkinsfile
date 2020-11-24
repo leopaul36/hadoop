@@ -178,15 +178,15 @@ pipeline {
             archiveArtifacts "${env.PATCHDIR}/**"
             // Publish the HTML report so that it can be looked at
             // Has to be relative to WORKSPACE.
-            publishHTML (target: [
-                          allowMissing: true,
-                          keepAll: true,
-                          alwaysLinkToLastBuild: true,
-                          // Has to be relative to WORKSPACE
-                          reportDir: "${env.PATCHDIR}",
-                          reportFiles: 'report.html',
-                          reportName: 'Yetus Report'
-            ])
+            // publishHTML (target: [
+            //               allowMissing: true,
+            //               keepAll: true,
+            //               alwaysLinkToLastBuild: true,
+            //               // Has to be relative to WORKSPACE
+            //               reportDir: "${env.PATCHDIR}",
+            //               reportFiles: 'report.html',
+            //               reportName: 'Yetus Report'
+            // ])
             // Publish JUnit results
             try {
                 junit "${env.SOURCEDIR}/**/target/surefire-reports/*.xml"
